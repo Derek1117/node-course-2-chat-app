@@ -3,7 +3,7 @@
  */
 const expect = require('expect');
 
-const {generateMessage} = require('./message');
+const {generateMessage, generateLocationMessage} = require('./message');
 
 
 describe('generateMessage', () => {
@@ -15,4 +15,17 @@ describe('generateMessage', () => {
        expect(message.createAt).toBeA('number');
        expect(message).toInclude({from, text});
    }) ;
+});
+
+describe('generateLocationMessage', () => {
+    it('should generate correct location message object', () => {
+        let from = 'Jen';
+        let latitude = 15;
+        let longitude = 20;
+        let message = generateLocationMessage(from, latitude, longitude);
+        let url = 'https://www.google.com/maps?q=15,20';
+
+        expect(message.createAt).toBeA('number');
+        expect(message).toInclude({from, url});
+    }) ;
 });
