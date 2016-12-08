@@ -6,14 +6,10 @@ var socket = io();
 socket.on('connect', function() {
     console.log('Connected to server');
 
-    socket.emit('createMessage', {
-        from: 'Client',
-        text: 'Hi'
-    });
-});
-
-socket.on('newEmail', function(email) {
-    console.log('New email:', email);
+    // socket.emit('createMessage', {
+    //     from: 'Client',
+    //     text: 'Hi'
+    // });
 });
 
 socket.on('newMessage', function(message) {
