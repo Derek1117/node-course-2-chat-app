@@ -33,8 +33,8 @@ io.on('connection', (socket) => {
         users.addUser(socket.id, params.name, params.room);
 
         io.to(params.room).emit('updateUserList', users.getUserList(params.room));
-        socket.emit('newMessage', generateMessage("Admin", "Welcome the chat app"));
-        socket.broadcast.to(params.room).emit('newMessage', generateMessage("Admin", `${params.name} has joined`));
+        socket.emit('newMessage', generateMessage("管理员", `欢迎加入 ${params.room} 聊天室`));
+        socket.broadcast.to(params.room).emit('newMessage', generateMessage("管理员", `${params.name} 已加入`));
 
         callback();
     });
@@ -64,7 +64,7 @@ io.on('connection', (socket) => {
 
         if (user) {
             io.to(user.room).emit('updateUserList', users.getUserList(user.room));
-            io.to(user.room).emit('newMessage', generateMessage("Admin", `${user.name} has left`));
+            io.to(user.room).emit('newMessage', generateMessage("管理员", `${user.name} 已离开`));
         }
     })
 });
