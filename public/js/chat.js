@@ -102,5 +102,9 @@ locationButton.on('click', function() {
     }, function(e) {
         locationButton.removeAttr('disabled').text('发送位置');
         alert('Unable to fetch location');
+    }, {
+        enableHighAccuracy: true,
+        maximumAge        : 30000,
+        timeout           : 27000
     });
 });
