@@ -14,9 +14,9 @@ const generateMessage = (from, text) => {
 const generateLocationMessage = (from, latitude, longitude) => {
     return {
         from,
-        url: `https://www.google.com/maps?q=${latitude},${longitude}`,
+        url: `https://api.map.baidu.com/marker?location=${latitude},${longitude}&title=我的位置&content=&output=html`,
         createAt: moment().valueOf()
-};
+    };
 };
 
 module.exports = {generateMessage, generateLocationMessage};

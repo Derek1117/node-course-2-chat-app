@@ -23,8 +23,8 @@ describe('generateLocationMessage', () => {
         let latitude = 15;
         let longitude = 20;
         let message = generateLocationMessage(from, latitude, longitude);
-        let url = 'https://www.google.com/maps?q=15,20';
-
+        //let url = 'https://www.google.com/maps?q=15,20';
+        let url = 'https://api.map.baidu.com/marker?location=15,20&title=我的位置&content=&output=html'
         expect(message.createAt).toBeA('number');
         expect(message).toInclude({from, url});
     }) ;
